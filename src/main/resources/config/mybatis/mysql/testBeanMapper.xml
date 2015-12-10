@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jxnu.dao.TestBeanDao">
+
+	<insert id="add" >
+		insert into testbean values("1","2")
+	</insert>
+	
+	<select id="findAll" resultType="com.jxnu.model.TestBean">
+		select * from testbean
+	</select>
+
+	<update id="update">
+		UPDATE testbean SET name = #{testBean.name},age = #{testBean.age} WHERE id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM testbean WHERE id = #{id}
+	</delete>
+
+    <!-- 登录 -->
+    <select id="login" resultType="com.jxnu.model.TestBean">
+        select * from testbean where name = #{name} and age = #{age}
+    </select>
+
+</mapper>
